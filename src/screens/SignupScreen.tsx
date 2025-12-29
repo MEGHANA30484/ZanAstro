@@ -17,7 +17,8 @@ const SignupOptionsScreen = ({ navigation }: any) => {
         <Text style={styles.title}>Choose Your Path</Text>
         <Text style={styles.subtitle}>Start your astrological journey today</Text>
 
-        <TouchableOpacity style={styles.optionCard}>
+        <TouchableOpacity style={styles.optionCard}
+        onPress={() => navigation.navigate('QuickSignup')}>
           <View style={[styles.iconCircle, { backgroundColor: colors.secondary }]}>
             <Text style={styles.iconEmoji}>⚡</Text>
           </View>
@@ -27,7 +28,8 @@ const SignupOptionsScreen = ({ navigation }: any) => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.optionCard, styles.primaryCard]}>
+        <TouchableOpacity style={[styles.optionCard, styles.primaryCard]}
+        onPress={() => navigation.navigate('CompleteSignup')}>
           <View style={[styles.iconCircle, { backgroundColor: '#fff' }]}>
             <Text style={styles.iconEmoji}>✨</Text>
           </View>
