@@ -1,10 +1,15 @@
 import { NavigationContainer } from '@react-navigation/native';
+import AuthNavigator from './AuthNavigator';
 import AppNavigator from './AppNavigator';
 
-export default function RootNavigator() {
+const RootNavigator = () => {
+  const isLoggedIn = false; // later from auth state
+
   return (
     <NavigationContainer>
-      <AppNavigator />
+      {isLoggedIn ? <AppNavigator /> : <AuthNavigator />}
     </NavigationContainer>
   );
-}
+};
+
+export default RootNavigator;
