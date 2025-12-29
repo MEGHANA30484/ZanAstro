@@ -1,15 +1,27 @@
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import PanditChatScreen from '../screens/PanditChatScreen';
+import LoginScreen from '../screens/LoginScreen';
+import SignupOptionsScreen from '../screens/SignupScreen';
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+  Login: undefined;
+  SignupOptions: undefined;
+};
 
-export default function AppNavigator() {
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+const AppNavigator = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen
-        name="PanditChat"
-        component={PanditChatScreen}
-      />
-    </Stack.Navigator>
+      <Stack.Navigator 
+        initialRouteName="Login"
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="SignupOptions" component={SignupOptionsScreen} />
+      </Stack.Navigator>
+
   );
-}
+};
+
+export default AppNavigator;
