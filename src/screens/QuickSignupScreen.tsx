@@ -34,12 +34,12 @@ const QuickSignupScreen = ({ navigation }: any) => {
             Start instantly with minimal details
           </Text>
 
-          <AppInput placeholder="Your Name" />
-          <AppInput placeholder="Email or Mobile Number" />
-          <AppInput secureTextEntry placeholder="Password" />
-          <AppInput secureTextEntry placeholder="Confirm Password" />
+          <AppInput label="Your Name" placeholder="Your Name" />
+          <AppInput label="Email or Mobile Number" placeholder="Email or Mobile Number" />
+          <AppInput label="Password" secureTextEntry placeholder="Password" />
+          <AppInput label="Confirm Password" secureTextEntry placeholder="Confirm Password" />
 
-          <AppButton title="Sign Up Now" onPress={() => {}} />
+          <AppButton title="Sign Up Now"  onPress = {() => navigation.navigate('LandingPage')} />
         </View>
       </ScrollView>
     </SafeAreaView>

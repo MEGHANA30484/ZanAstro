@@ -36,7 +36,7 @@ const CompleteSignupScreen = ({ navigation }: any) => {
                    <AppInput label="Password" placeholder="******" secureTextEntry />
                 </View>
                 <View style={styles.halfInput}>
-                   <AppInput label="Confirm" placeholder="******" secureTextEntry />
+                   <AppInput label="Confirm Password" placeholder="******" secureTextEntry />
                 </View>
               </View>
             </View>
@@ -62,7 +62,7 @@ const CompleteSignupScreen = ({ navigation }: any) => {
             <View style={styles.submitBtn}>
               <AppButton 
                 title="Begin Your Journey" 
-                onPress={() => {}} 
+                 onPress = {() => navigation.navigate('LandingPage')}
               />
             </View>
           </View>
