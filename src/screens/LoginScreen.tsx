@@ -1,96 +1,90 @@
 import React, { useState } from 'react';
-import { 
-  View, 
-  Text, 
-  Image, 
-  TextInput, 
-  TouchableOpacity, 
-  StyleSheet, 
-  SafeAreaView, 
-  KeyboardAvoidingView, 
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
+  KeyboardAvoidingView,
   Platform,
   Alert
 } from 'react-native';
 import { colors } from '../theme/colors';
 import { spacing } from '../theme/spacing';
 import { fonts } from '../theme/fonts';
+import { AppInput } from '../components/AppInput';
 
 const LoginScreen = ({ navigation }: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [secureText, setSecureText] = useState(true);
 
-  const handleLogin = () => {
-    // Basic Validation
-    if (!email || !password) {
-      Alert.alert('Error', 'Please enter both email and password');
-      return;
-    }
-    
-    const emailRegex = /\S+@\S+\.\S+/;
-    if (!emailRegex.test(email)) {
-      Alert.alert('Error', 'Please enter a valid email address');
-      return;
-    }
-
-    // Logic for existing user login
-    console.log('Attempting Login:', { email, password });
-  };
-
   return (
     <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView 
+      <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.inner}
       >
-        <View style={styles.logoContainer}>
-          <Image 
-            source={require('../assets/images/logo.png')} 
-            style={styles.logo}
+
+        {/* 1. ZanAstro Logo */}
+        <View style={styles.brandContainer}>
+          <Image
+            source={require('../assets/images/logo.png')}
+            style={styles.brandLogo}
             resizeMode="contain"
           />
         </View>
 
-        <View style={styles.form}>
+        {/* 2. Pandit Avatar */}
+        <View style={styles.avatarWrapper}>
+          <View style={styles.avatarCircle}>
+            <Image
+              source={require('../assets/images/pandit.png')}
+              style={styles.avatar}
+              resizeMode="contain"
+            />
+          </View>
+        </View>
+
+        {/* 3. Form Card */}
+        <View style={styles.formCard}>
           <Text style={styles.title}>Welcome to ZanAstro</Text>
-          
+
           <Text style={styles.label}>Email Address</Text>
-          <TextInput
+          <AppInput
             style={styles.input}
             placeholder="example@mail.com"
             placeholderTextColor="#aaa"
             value={email}
             onChangeText={setEmail}
-            keyboardType="email-address"
-            autoCapitalize="none"
-            autoCorrect={false}
           />
 
           <Text style={styles.label}>Password</Text>
           <View style={styles.passwordContainer}>
-            <TextInput
+            <AppInput
               style={styles.passwordInput}
               placeholder="Enter your password"
               placeholderTextColor="#aaa"
               value={password}
               onChangeText={setPassword}
               secureTextEntry={secureText}
-              autoCapitalize="none"
             />
-            <TouchableOpacity 
-              onPress={() => setSecureText(!secureText)}
-              style={styles.eyeButton}
-            >
+            <TouchableOpacity onPress={() => setSecureText(!secureText)}>
               <Text style={styles.eyeText}>{secureText ? 'Show' : 'Hide'}</Text>
             </TouchableOpacity>
           </View>
 
-          <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+          <TouchableOpacity
+            style={styles.loginButton}
+            onPress={() => navigation.navigate('LandingPage')}
+          >
             <Text style={styles.buttonText}>Login</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity 
-            style={styles.signupLink} 
+          <TouchableOpacity
+            style={styles.signupLink}
             onPress={() => navigation.navigate('SignupOptions')}
           >
             <Text style={styles.linkText}>
@@ -98,8 +92,10 @@ const LoginScreen = ({ navigation }: any) => {
             </Text>
           </TouchableOpacity>
         </View>
+
       </KeyboardAvoidingView>
     </SafeAreaView>
+
   );
 };
 
@@ -110,16 +106,47 @@ const styles = StyleSheet.create({
   },
   inner: {
     flex: 1,
-    padding: spacing.l,
+    padding: spacing.m,
     justifyContent: 'center',
   },
-  logoContainer: {
+  brandContainer: {
     alignItems: 'center',
-    marginBottom: spacing.xxl,
+    marginTop: spacing.m,
   },
-  logo: {
+
+  brandLogo: {
     width: 160,
-    height: 160,
+    height: 80,
+  },
+  avatarWrapper: {
+    alignItems: 'center',
+    marginTop: spacing.l,
+  },
+
+  avatarCircle: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    backgroundColor: '#f5eef6',
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 4,
+  },
+
+  avatar: {
+    width: 100,
+    height: 100,
+  },
+
+  formCard: {
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    padding: spacing.l,
+    marginTop: spacing.xl,
+    elevation: 6,
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
   },
   title: {
     fontSize: fonts.size.xl,
@@ -169,6 +196,7 @@ const styles = StyleSheet.create({
     color: colors.primary,
     fontWeight: fonts.weight.bold,
     fontSize: fonts.size.s,
+    marginLeft: spacing.xl,
   },
   loginButton: {
     backgroundColor: colors.primary,

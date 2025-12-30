@@ -1,15 +1,17 @@
 import React from 'react';
-import { TextInput, StyleSheet, TextInputProps, View } from 'react-native';
+import { TextInput, StyleSheet, TextInputProps, View, Text } from 'react-native';
 import { colors } from '../theme/colors';
 import { spacing } from '../theme/spacing';
+import { fonts } from '../theme/fonts';
 
 interface AppInputProps extends TextInputProps {
   label?: string; 
 }
 
-export const AppInput: React.FC<AppInputProps> = (props) => {
+export const AppInput: React.FC<AppInputProps> = ({label, ...props}) => {
   return (
     <View style={styles.wrapper}>
+      {label && <Text style={styles.label}>{label}</Text>}
       <TextInput
         style={styles.input}
         placeholderTextColor={colors.textDark || '#888'}
@@ -23,6 +25,12 @@ const styles = StyleSheet.create({
   wrapper: {
     marginBottom: spacing.m,
     width: '100%',
+  },
+  label: {
+    marginBottom: 6,
+    fontSize: 13,
+    color: colors.textDark,
+    fontWeight: '600',
   },
   input: {
     height: 50,
