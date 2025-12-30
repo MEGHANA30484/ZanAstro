@@ -21,6 +21,7 @@ const WelcomeScreen = ({ navigation }: any) => {
             id: 1,
             title: '24/7 Pandit Chat',
             desc: 'Get instant astrology guidance anytime',
+            icon: '💬',
             icon: '💬', // Replace with specific icons/images as needed
             onPress: () => navigation.navigate('PanditChat'),
         },
@@ -35,6 +36,8 @@ const WelcomeScreen = ({ navigation }: any) => {
             title: 'Daily Horoscope',
             desc: 'Start your day with cosmic insights',
             icon: '📅',
+            onPress: () => navigation.navigate("Horoscope")
+
         },
         {
             id: 4,

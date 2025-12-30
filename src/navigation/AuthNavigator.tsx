@@ -5,6 +5,7 @@ import QuickSignupScreen from '../screens/QuickSignupScreen';
 import CompleteSignupScreen from '../screens/CompleteSignupScreen';
 import LoginScreen from '../screens/LoginScreen';
 import WelcomeScreen from '../screens/LandingPage';
+import HoroscopeScreen from '../screens/Horoscopescreen';
 import PanditChatScreen from '../screens/PanditChatScreen';
 
 const Stack = createStackNavigator();
@@ -19,6 +20,7 @@ const AuthNavigator = () => {
       <Stack.Screen name = "LandingPage" component={WelcomeScreen} />
       <Stack.Screen name="QuickSignup" component={QuickSignupScreen} />
       <Stack.Screen name="CompleteSignup" component={CompleteSignupScreen} />
+      <Stack.Screen name="Horoscope" component={HoroscopeScreen} />
     </Stack.Navigator>
   );
 };
