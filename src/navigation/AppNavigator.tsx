@@ -4,9 +4,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from '../screens/LoginScreen';
 import SignupOptionsScreen from '../screens/SignupScreen';
 
+
+
 export type RootStackParamList = {
   Login: undefined;
   SignupOptions: undefined;
+  LandingPage: undefined;
+  Horoscope: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

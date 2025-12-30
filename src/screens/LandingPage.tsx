@@ -21,7 +21,7 @@ const WelcomeScreen = ({ navigation }: any) => {
             id: 1,
             title: '24/7 Pandit Chat',
             desc: 'Get instant astrology guidance anytime',
-            icon: '💬', // Replace with specific icons/images as needed
+            icon: '💬',
         },
         {
             id: 2,
@@ -34,6 +34,8 @@ const WelcomeScreen = ({ navigation }: any) => {
             title: 'Daily Horoscope',
             desc: 'Start your day with cosmic insights',
             icon: '📅',
+            onPress: () => navigation.navigate("Horoscope")
+
         },
         {
             id: 4,
@@ -73,6 +75,9 @@ const WelcomeScreen = ({ navigation }: any) => {
                             onPress={() => {
                                 LayoutAnimation.easeInEaseOut();
                                 setSelectedId(item.id);
+                                if (item.onPress) {
+                                    item.onPress();
+                                }
                             }}
                         >
                             <View style={styles.iconContainer}>
