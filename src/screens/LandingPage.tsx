@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
     View,
     Text,
@@ -22,6 +22,8 @@ const WelcomeScreen = ({ navigation }: any) => {
             title: '24/7 Pandit Chat',
             desc: 'Get instant astrology guidance anytime',
             icon: '💬',
+            icon: '💬', // Replace with specific icons/images as needed
+            onPress: () => navigation.navigate('PanditChat'),
         },
         {
             id: 2,
