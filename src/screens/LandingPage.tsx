@@ -22,7 +22,6 @@ const WelcomeScreen = ({ navigation }: any) => {
             title: '24/7 Pandit Chat',
             desc: 'Get instant astrology guidance anytime',
             icon: '💬',
-            icon: '💬', // Replace with specific icons/images as needed
             onPress: () => navigation.navigate('PanditChat'),
         },
         {
@@ -44,6 +43,7 @@ const WelcomeScreen = ({ navigation }: any) => {
             title: 'Planetary Alerts',
             desc: 'Stay updated with celestial events',
             icon: '🔔',
+            onPress: () => navigation.navigate('PlanetaryAlerts'),
         },
     ];
     const [selectedId, setSelectedId] = useState<number | null>(null);
